@@ -71,8 +71,14 @@ const menu = [
     img: "/images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing`,
   },
-
-
+  {
+    id: 10,
+    title: "Steak Asperge",
+    category: "Dinner",
+    price: 24.99,
+    img: "/images/item-10.jpeg",
+    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem soluta sint officia, architecto neque quae`,
+  },
 ];
 
 export default menu;
