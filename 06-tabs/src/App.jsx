@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import ErrorComp from "./ErrorComp";
 import Loading from "./Loading";
+import BtnContainer from "./BtnContainer";
 import JobInfo from "./JobInfo";
+
 
 const url = "https://course-api.com/react-tabs-project";
 
@@ -9,6 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [jobs, setJobs] = useState([]);
+  const [currentItem, setCurrentItem] = useState(0);
 
   const getJobs = async () => {
     setIsError(false);
@@ -47,7 +50,10 @@ function App() {
           isLoading ? (
             <Loading />
           ) : (
-            <JobInfo jobs={jobs} />
+            <>
+              <BtnContainer jobs={jobs} currentItem={currentItem} setCurrentItem={setCurrentItem} />
+              <JobInfo job={jobs[currentItem]} />
+            </>
           )
         )}
       </main>

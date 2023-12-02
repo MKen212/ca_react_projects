@@ -1,7 +1,7 @@
 import Duties from "./Duties";
 
-const JobInfo = ({ jobs }) => {
-  const { company, dates, title, duties } = jobs[0];
+const JobInfo = ({ job }) => {
+  const { company, dates, title, duties } = job;
   return (
     <section className="job-info">
       <h3>{title}</h3>
