@@ -1,4 +1,5 @@
 import Carousel from "./Carousel";
+import SlickCarousel from "./SlickCarousel";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       </header>
 
       <main>
-        <Carousel />
+        {/* <Carousel /> */}
+        <SlickCarousel />
       </main>
     </div>
   );
