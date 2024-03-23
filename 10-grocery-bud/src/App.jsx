@@ -1,11 +1,17 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import Form from "./Form";
 import Items from "./Items";
 
-
 function App() {
-  const [items, setItems] = useState([]);
+  const defaultItems = JSON.parse(localStorage.getItem("reactBudList") || "[]");
+  
+  const setLocalStorage = (items) => {
+    localStorage.setItem("reactBudList", JSON.stringify(items));
+  };
+
+  const [items, setItems] = useState(defaultItems);
 
   const addItem = (itemName) => {
     const newItem = {
@@ -15,6 +21,8 @@ function App() {
     };
     const newItems = [...items, newItem];
     setItems(newItems);
+    setLocalStorage(newItems);
+    toast.success("Item was added");
   };
 
   const toggleCompleted = (id) => {
@@ -26,9 +34,15 @@ function App() {
       return item;
     });
     setItems(newItems);
+    setLocalStorage(newItems);
   };
 
-  // UP TO REMOVE ITEM
+  const removeItem = (id, itemName) => {
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+    setLocalStorage(newItems);
+    toast.info(`"${itemName}" was deleted.`);
+  };
 
   return (
     <div>
@@ -38,10 +52,14 @@ function App() {
       </header>
 
       <main className="section-center">
+        <ToastContainer position="top-center" />
         <Form addItem={addItem} />
-        <Items items={items} toggleCompleted={toggleCompleted} />
+        <Items
+          items={items}
+          toggleCompleted={toggleCompleted}
+          removeItem={removeItem}
+        />
       </main>
-
     </div>
   );
 };

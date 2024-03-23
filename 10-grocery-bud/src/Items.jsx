@@ -1,6 +1,6 @@
 import SingleItem from "./SingleItem";
 
-const Items = ({ items, toggleCompleted }) => {
+const Items = ({ items, toggleCompleted, removeItem }) => {
   return (
     <section className="items">
       {
@@ -10,6 +10,7 @@ const Items = ({ items, toggleCompleted }) => {
               key={item.id}
               item={item}
               toggleCompleted={toggleCompleted}
+              removeItem={removeItem}
             />
           );
         })
