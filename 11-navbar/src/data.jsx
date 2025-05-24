@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaLinkedin, FaDiscord } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaDiscord } from "react-icons/fa";
 
 export const links = [
   {
