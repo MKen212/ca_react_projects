@@ -5,7 +5,7 @@ import BtnContainer from "./BtnContainer";
 import JobInfo from "./JobInfo";
 
 
-const url = "https://course-api.com/react-tabs-project";
+const url = "/api/react-tabs-project";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
