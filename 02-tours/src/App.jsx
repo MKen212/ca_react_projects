@@ -3,7 +3,7 @@ import Loading from "./Loading";
 import Tours from "./Tours";
 import ErrorComp from "./ErrorComp";
 
-const url = "https://course-api.com/react-tours-project";
+const url = "/api/react-tours-project";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,6 +15,8 @@ function App() {
     setIsLoading(true);
     try {
       const resp = await fetch(url);
+      console.log(resp);
+      
       if (!resp.ok) {
         throw new Error("No Data retrieved.");
       }
