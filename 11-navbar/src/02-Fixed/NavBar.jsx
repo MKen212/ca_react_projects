@@ -22,7 +22,7 @@ const NavBar = () => {
         </div>
 
         {/* Links */}
-        <div className={showLinks ? "show-container" : "links-container"}>
+        <div className={showLinks ? "links-container show-container" : "links-container"}>
           <ul className="links">
             {links.map((link) => {
               const { id, url, text } = link;
